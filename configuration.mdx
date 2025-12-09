@@ -1,0 +1,137 @@
+---
+title: Configuring Your Documentation Space
+description: Learn how to customize settings, permissions, and integrations to tailor the platform to your project's needs.
+---
+
+## Overview
+
+Tailor Shihab Salah Documentation to your project's requirements by configuring user roles, themes, and backup options. Access the configuration panel from your workspace settings menu. These settings ensure secure collaboration and consistent branding across all documents.
+
+<Columns cols={3}>
+  <Card title="User Roles" icon="users" href="#user-roles">
+    Manage permissions for team members.
+  </Card>
+  <Card title="Themes & Branding" icon="palette" href="#themes-branding">
+    Customize colors and logos.
+  </Card>
+  <Card title="Exports & Backups" icon="download" href="#exports-backups">
+    Secure your content with regular exports.
+  </Card>
+</Columns>
+
+## User Roles and Permissions
+
+Define roles to control access levels. Shihab Salah Documentation supports four core roles: Admin, Editor, Viewer, and Guest.
+
+<Callout kind="info">
+  Assign roles at the workspace level to enforce consistent permissions across projects.
+</Callout>
+
+Use the following steps to manage roles:
+
+<Steps>
+  <Step title="Navigate to Settings" icon="settings">
+    Click your profile icon and select `Workspace Settings > Permissions`.
+  </Step>
+  <Step title="Add Users" icon="user-plus">
+    Enter email addresses and select roles from the dropdown.
+  </Step>
+  <Step title="Apply Changes" icon="check-circle">
+    Save to propagate permissions instantly.
+  </Step>
+</Steps>
+
+| Role     | Edit Documents | Manage Users | Delete Content | View Analytics |
+|----------|----------------|--------------|----------------|---------------|
+| Admin    | Yes            | Yes          | Yes            | Yes           |
+| Editor   | Yes            | No           | No             | Yes           |
+| Viewer   | No             | No           | No             | Yes           |
+| Guest    | No             | No           | No             | Limited       |
+
+<Tabs>
+  <Tab title="Admin Permissions" icon="shield">
+    Admins control all aspects, including billing and integrations.
+  </Tab>
+  <Tab title="Editor Workflow" icon="edit-3">
+    Editors can create and update MDX files but cannot alter user lists.
+  </Tab>
+</Tabs>
+
+## Customizing Themes and Branding
+
+Apply your brand color (`#3B82F6`) and custom logos through the theme editor.
+
+<Expandable title="Advanced Theme Configuration" default-open="false">
+
+Edit the `theme.json` file in your repository root:
+
+<CodeGroup tabs="JSON,YAML">
+```json
+{
+  "primaryColor": "#3B82F6",
+  "logo": "/assets/shihab-logo.svg",
+  "fontFamily": "Inter, sans-serif"
+}
+```
+
+```yaml
+primaryColor: "#3B82F6"
+logo: /assets/shihab-logo.svg
+fontFamily: Inter, sans-serif
+```
+</CodeGroup>
+
+</Expandable>
+
+Follow these steps to update branding:
+
+<Steps>
+  <Step title="Open Theme Editor" icon="palette">
+    Go to `Settings > Branding`.
+  </Step>
+  <Step title="Upload Assets" icon="upload">
+    Add your logo (SVG recommended, max 200x50px) and set primary color to `#3B82F6`.
+  </Step>
+  <Step title="Preview & Save" icon="eye">
+    Preview changes live and deploy.
+  </Step>
+</Steps>
+
+## Export and Backup Options
+
+Protect your documentation with automated backups and flexible exports.
+
+<Callout kind="tip" kind="warning">
+  Enable daily backups to avoid data loss during migrations.
+</Callout>
+
+Choose export formats via the dashboard:
+
+<Tabs>
+  <Tab title="PDF Export" icon="file-text">
+    ```bash
+    npm run export:pdf -- --output=./docs/exported-guide.pdf
+    ```
+    Generates printable PDFs with your branding.
+  </Tab>
+  <Tab title="Markdown Bundle" icon="file">
+    ```bash
+    npm run export:md -- --all --zip=true
+    ```
+    Creates a ZIP of all MDX files for Git import.
+  </Tab>
+  <Tab title="Git Sync" icon="git-branch">
+    Push changes to your Shihab Salah repo:
+    ```bash
+    git add . && git commit -m "Backup export" && git push origin main
+    ```
+  </Tab>
+</Tabs>
+
+Schedule backups in `Settings > Backups`:
+
+1. Select frequency (daily/weekly).
+2. Choose storage (S3, GitHub).
+3. Test restore to verify integrity.
+
+These configurations keep your Shihab Salah Documentation space secure, branded, and resilient. Review settings quarterly to align with project growth.

@@ -1,0 +1,125 @@
+---
+title: Welcome to Shihab Salah Documentation
+description: An overview of the Shihab Salah Documentation platform, designed as a default space for organizing and managing project documentation efficiently.
+---
+
+## Platform Overview
+
+Shihab Salah Documentation provides a centralized space to organize, manage, and publish your project documentation. You create pages, structure content hierarchically, and collaborate with teams using intuitive tools. This platform supports MDX for rich, interactive docs with components like tabs, steps, and code examples.
+
+<Columns cols={3}>
+  <Card title="MDX-Powered Pages" icon="file-text" href="/docs/mdx">
+    Build dynamic documentation with components that render code, diagrams, and interactive elements.
+  </Card>
+  <Card title="Version Control" icon="git-branch" href="/docs/versioning">
+    Track changes, collaborate via pull requests, and maintain history for all your docs.
+  </Card>
+  <Card title="Search & Navigation" icon="search" href="/docs/search">
+    Find content instantly with full-text search and a clean sidebar navigation.
+  </Card>
+</Columns>
+
+## Key Benefits
+
+You gain efficiency through features tailored for documentation workflows.
+
+- **Rapid Onboarding**: Start writing in minutes without complex setup.
+- **Rich Media Support**: Embed images, videos, and interactive diagrams seamlessly.
+- **Customizable Themes**: Adjust branding with colors like `#3B82F6` for your projects.
+- **Analytics Integration**: Track page views and user engagement.
+
+<Callout kind="tip">
+  Customize your sidebar navigation by editing the config file to match your project structure.
+</Callout>
+
+## Getting Oriented with the Interface
+
+Follow these steps to familiarize yourself with the platform.
+
+<Steps>
+  <Step title="Access the Dashboard" icon="layout">
+    Log in to view your documentation spaces. Select `Shihab Salah Documentation` as your default workspace.
+  </Step>
+  <Step title="Create Your First Page" icon="plus">
+    Click the `New Page` button. Choose `introduction.mdx` as the file name and add frontmatter.
+  </Step>
+  <Step title="Explore Components" icon="components">
+    Use the component palette to insert `<Tabs>`, `<Steps>`, or `<CodeGroup>` for enhanced content.
+  </Step>
+  <Step title="Preview and Publish" icon="eye">
+    Preview changes live, then publish to make your docs accessible to your team.
+  </Step>
+</Steps>
+
+<Tabs>
+  <Tab title="Editor View" icon="edit-3">
+    The main editor supports real-time preview. Split view shows markdown source and rendered output side-by-side.
+
+    ```markdown
+    ## Quick Example
+
+    Use `**bold**` for emphasis and `` `inline code` `` for snippets.
+    ```
+  </Tab>
+  <Tab title="Sidebar Navigation" icon="sidebar">
+    Organize pages into folders. Drag and drop to reorder.
+
+    <Image
+      src="https://via.placeholder.com/600x300/3B82F6/white?text=Sidebar+Navigation"
+      alt="Screenshot of the sidebar navigation interface"
+      width="600"
+      height="300"
+    />
+  </Tab>
+  <Tab title="Settings Panel" icon="settings">
+    Configure SEO, themes, and integrations here.
+
+    ```javascript
+    // Example theme config
+    const theme = {
+      primaryColor: '#3B82F6',
+      fontFamily: 'Inter, sans-serif'
+    };
+    ```
+  </Tab>
+</Tabs>
+
+<Expandable title="Advanced Customization" default-open="false">
+  Integrate custom components by adding them to your MDX setup.
+
+  <CodeGroup tabs="JavaScript,TypeScript">
+    ```javascript
+    import { Callout, Steps } from './components';
+
+    export default function Docs() {
+      return (
+        <div>
+          <Callout kind="info">Custom content here.</Callout>
+        </div>
+      );
+    }
+    ```
+    ```typescript
+    import { Callout, Steps } from './components';
+    import type { ReactElement } from 'react';
+
+    const Docs: React.FC = (): ReactElement => {
+      return (
+        <div>
+          <Callout kind="info">Type-safe custom docs.</Callout>
+        </div>
+      );
+    };
+
+    export default Docs;
+    ```
+  </CodeGroup>
+</Expandable>
+
+| Feature | Benefit | Example Use Case |
+|---------|---------|------------------|
+| MDX Components | Interactive docs | Tutorials with `<Steps>` |
+| Search | Quick access | Find API endpoints fast |
+| Collaboration | Team editing | Review docs via PRs |
+
+This setup ensures you manage project documentation efficiently from day one.

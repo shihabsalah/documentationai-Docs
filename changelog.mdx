@@ -1,0 +1,138 @@
+---
+title: Changelog
+description: Track updates, new features, and improvements to the Shihab Salah Documentation platform over time.
+---
+
+## Recent Releases
+
+Stay informed about the latest enhancements to Shihab Salah Documentation. You access release notes here to understand new capabilities, bug fixes, and breaking changes. Review the updates below to plan your migrations and leverage new features.
+
+<Columns cols={3}>
+  <Card title="Latest" icon="zap" href="#v1-2-0">
+    v1.2.0 - Enhanced editing tools
+  </Card>
+  <Card title="Previous" icon="package" href="#v1-1-0">
+    v1.1.0 - Improved search
+  </Card>
+  <Card title="Initial" icon="rocket" href="#v1-0-0">
+    v1.0.0 - Core launch
+  </Card>
+</Columns>
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added real-time collaboration for team editing sessions.
+- Introduced version history with diff viewer.
+
+## Improvements
+
+- Optimized page rendering speed by `>30%`.
+- Enhanced MDX component support for custom icons.
+
+## Bug Fixes
+
+- Fixed parsing errors with nested `{code blocks}`.
+- Resolved mobile navigation glitches.
+
+```javascript
+// Example: New collaboration API
+import { collaborate } from '@shihabsalah/docs-sdk';
+
+const session = await collaborate({ docId: 'your-doc-id', users: ['user1', 'user2'] });
+```
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Implemented full-text search across all documentation pages.
+- Added dark mode toggle with persistent storage.
+
+## Bug Fixes
+
+- Corrected frontmatter YAML parsing for complex `{nested objects}`.
+- Fixed sidebar collapse on resize.
+
+<CodeGroup tabs="JavaScript,Python">
+```javascript
+// Search integration
+const results = await searchDocs('MDX components');
+console.log(results);
+```
+```python
+# Search integration
+results = search_docs("MDX components")
+print(results)
+```
+</CodeGroup>
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["feature", "breaking"]}>
+
+## New Features
+
+- Launched core MDX documentation engine.
+- Integrated Lucide icons and custom components.
+
+## Breaking Changes
+
+- Updated attribute syntax: Use double quotes for all strings.
+
+</Update>
+
+## How to Stay Updated
+
+Follow these steps to ensure you never miss a release.
+
+<Steps>
+  <Step title="Subscribe to Notifications" icon="bell">
+    Enable email alerts in your account settings.
+  </Step>
+  <Step title="Watch GitHub" icon="github">
+    Star the repository at [github.com/shihabsalah/docs](https://github.com/shihabsalah/docs).
+  </Step>
+  <Step title="Check RSS Feed" icon="rss">
+    Add `/changelog.xml` to your feed reader.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Pin this page to your dashboard for quick access to updates.
+</Callout>
+
+## View by Category
+
+Switch between update types to focus on what matters to you.
+
+<Tabs>
+  <Tab title="Features" icon="star">
+    Review all `{["feature"]}` tagged releases above for new capabilities like collaboration and search.
+  </Tab>
+  <Tab title="Bug Fixes" icon="bug">
+    Critical fixes ensure stable rendering of `<MDX components>`.
+  </Tab>
+  <Tab title="Breaking Changes" icon="alert-triangle">
+    Plan migrations carefully, especially syntax updates.
+  </Tab>
+</Tabs>
+
+<ExpandableGroup>
+  <Expandable title="Migration Guide for v1.2.0" default-open="false">
+
+    Update your config to use the new collaboration features:
+
+````javascript
+// Before (v1.1.0)
+const oldCollab = initCollab('doc-id');
+
+// After (v1.2.0)
+const newSession = await collaborate({ docId: 'doc-id' });
+````
+
+  </Expandable>
+</ExpandableGroup>
